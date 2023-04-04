@@ -12,19 +12,15 @@ class ViewController: UIViewController {
 	@IBOutlet weak var dateTimeLabel: UILabel!
 	
 	@IBAction func onYesterday(_ sender: UIButton) {
-		guard let yesterday = Calendar.current.date(byAdding: .day, value: -1, to: currentDateTime) else { return }
-		currentDateTime = yesterday
-		updateDateTime()
+		
 	}
 	
 	@IBAction func onNow(_ sender: UIButton) {
-		fetchNow()
+		
 	}
 	
 	@IBAction func onTomorrow(_ sender: UIButton) {
-		guard let tomorrow = Calendar.current.date(byAdding: .day, value: 1, to: currentDateTime) else { return }
-				currentDateTime = tomorrow
-				updateDateTime()
+	
 	}
 	
 	//MARK: - Controller
