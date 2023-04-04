@@ -26,8 +26,10 @@ class ViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		viewModel.onUpdated = { [weak self] in
+			self?.dateTimeLabel.text = self?.viewModel.dateTimeString
+		}
 		viewModel.viewDidLoad()
-		dateTimeLabel.text = viewModel.dateTimeString
 	}
 	
 	

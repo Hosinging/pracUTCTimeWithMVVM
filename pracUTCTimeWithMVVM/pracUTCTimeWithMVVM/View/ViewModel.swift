@@ -8,6 +8,7 @@
 import Foundation
 
 class ViewModel {
+	var onUpdated: () -> Void = {}
 	var dateTimeString: String = "Loading..."
 		
 	let service = Service()
