@@ -13,9 +13,7 @@ class ViewModel {
 	let service = Service()
 	
 	func viewDidLoad() {
-		service.fetchNow() {
-			
-		}
+		service.fetchNow()
 	}
 	
    private func dateToString(date: Date) {
