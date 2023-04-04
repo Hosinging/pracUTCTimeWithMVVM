@@ -28,8 +28,6 @@ class ViewController: UIViewController {
 	}
 	
 	//MARK: - Controller
-	var currentDateTime = Date()
-	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view.
