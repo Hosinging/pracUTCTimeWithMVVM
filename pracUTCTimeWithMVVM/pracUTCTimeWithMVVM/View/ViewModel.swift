@@ -13,13 +13,17 @@ class ViewModel {
 	let service = Service()
 	
 	func viewDidLoad() {
-		service.fetchNow()
+		service.fetchNow { [weak self] model in
+			guard let self = self else { return }
+			let dateString = self.dateToString(date: model.currentDateTime)
+			self.dateTimeString = dateString
+		}
 	}
 	
-   private func dateToString(date: Date) {
+   private func dateToString(date: Date) -> String {
 	   let formatter = DateFormatter()
 	   formatter.dateFormat = "yyyy년 MM월 dd일 HH시 mm분"
-	   dateTimeString = formatter.string(from: date)
+	   return formatter.string(from: date)
    }
 	
 }
