@@ -7,6 +7,6 @@
 
 import Foundation
 
-class Model {
-	let currentDateTime: Date = Date()
+struct Model {
+	let currentDateTime: Date
 }

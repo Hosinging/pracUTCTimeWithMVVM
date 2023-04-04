@@ -10,9 +10,14 @@ import Foundation
 class Service {
 	let repository = Repository()
 	
-	func fetchNow() {
-		repository.fetchNow { date in
+	func fetchNow(onCompleted: @escaping (_ model: Model) -> Void) {
+		repository.fetchNow { entity in
+			let formatter = DateFormatter()
+			formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSSSSXXX"
 			
+			guard let now = formatter.date(from: entity.datetime) else { return }
+			let model = Model(currentDateTime: now)
+			onCompleted(model)
 		}
 	}
 	
