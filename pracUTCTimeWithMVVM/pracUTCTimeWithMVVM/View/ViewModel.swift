@@ -9,7 +9,11 @@ import Foundation
 
 class ViewModel {
 	var onUpdated: () -> Void = {}
-	var dateTimeString: String = "Loading..."
+	var dateTimeString: String = "Loading..." {
+		didSet {
+			onUpdated()
+		}
+	}
 		
 	let service = Service()
 	
@@ -26,5 +30,13 @@ class ViewModel {
 	   formatter.dateFormat = "yyyy년 MM월 dd일 HH시 mm분"
 	   return formatter.string(from: date)
    }
+	func reload() {
+		self.viewDidLoad()
+	}
+	
+	func moveDay(day: Int) {
+		service.moveDay(day: day)
+		dateTimeString = dateToString(date: service.currentModel.currentDateTime)
+	}
 	
 }
