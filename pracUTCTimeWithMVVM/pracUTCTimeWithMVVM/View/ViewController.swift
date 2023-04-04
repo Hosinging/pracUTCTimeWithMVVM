@@ -35,27 +35,7 @@ class ViewController: UIViewController {
 		// Do any additional setup after loading the view.
 	}
 	
-	func fetchNow() {
-		guard let url = URL(string: "http://worldtimeapi.org/api/timezone/Asia/Seoul") else { return }
-		
-		dateTimeLabel.text = "Loading..."
-		
-		URLSession.shared.dataTask(with: url, completionHandler: { [weak self] data, response, error in
-			guard let data = data else { return }
-			guard let model = try? JSONDecoder().decode(UTCTimeModel.self, from: data) else { return }
-			
-			let formatter = DateFormatter()
-			formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSSSSXXX"
-			
-			guard let now = formatter.date(from: model.datetime) else { return }
-			
-			self?.currentDateTime = now
-			
-			DispatchQueue.main.async {
-				self?.updateDateTime()
-			}
-		}).resume()
-	}
+	
 	
 	func updateDateTime() {
 		let formatter = DateFormatter()
