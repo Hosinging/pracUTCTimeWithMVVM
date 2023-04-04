@@ -10,8 +10,12 @@ import Foundation
 class ViewModel {
 	var dateTimeString: String = "Loading..."
 		
+	let service = Service()
+	
 	func viewDidLoad() {
-		
+		service.fetchNow() {
+			
+		}
 	}
 	
    private func dateToString(date: Date) {

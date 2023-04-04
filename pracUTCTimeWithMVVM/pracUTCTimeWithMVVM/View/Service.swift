@@ -8,6 +8,14 @@
 import Foundation
 
 class Service {
+	let repository = Repository()
+	
+	func fetchNow() {
+		repository.fetchNow { date in
+			
+		}
+	}
+	
 	func onYesterday(now: Date) -> Date {
 		guard let yesterday = Calendar.current.date(byAdding: .day, value: -1, to: now) else { return now }
 		return yesterday
