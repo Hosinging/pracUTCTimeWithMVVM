@@ -62,9 +62,6 @@ class ViewController: UIViewController {
 		formatter.dateFormat = "yyyy년 MM월 dd일 HH시 mm분"
 		dateTimeLabel.text = formatter.string(from: currentDateTime)
 	}
-	//MARK: - Model
-	struct UTCTimeModel: Codable {
-		let datetime: String
-	}
+
 }
 
